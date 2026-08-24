@@ -1,0 +1,7 @@
+# PyTorch'u normal PyPI'dan DEGIL, CUDA index'inden kur (yoksa CPU surumu gelir):
+#   .venv\Scripts\python.exe -m pip install torch --index-url https://download.pytorch.org/whl/cu128
+torch
+numpy
+tqdm
+tokenizers
+requests

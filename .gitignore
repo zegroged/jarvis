@@ -1,0 +1,83 @@
+# ---------------------------------------------------------------------------
+# Jarvis — .gitignore
+#
+# Kural: KAYNAK ve ÜRETEÇ depoda kalır, TÜREV ve İNDİRİLEBİLİR olan kalmaz.
+#
+# Depoda KALIR:
+#   src/                 kod
+#   bilgi_hazinesi/      elle yazılmış Türkçe uzman korpusu (12 MB) — asıl değer
+#   uretim_araclari/     veri üretim hattı (7.5 MB)
+#
+# Depoya GİRMEZ (toplam ~31 GB):
+#   models/              14 GB — HuggingFace'ten yeniden iner (src/model_indir.py)
+#   data/raw/            8.6 GB — public GitHub zip'leri (src/kaynak_indir.py)
+#   .venv/               ~7 GB — pip install ile geri gelir
+#   checkpoints/         1.4 GB — eğitim çıktısı
+#   data/processed/      türev veri (src/korpus_kur.py + binlestir.py üretir)
+# ---------------------------------------------------------------------------
+
+# --- Python ---
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# --- Model ağırlıkları (indirilir, sürümlenmez) ---
+models/
+checkpoints/
+*.pt
+*.pth
+*.gguf
+*.safetensors
+*.onnx
+
+# --- Ham veri (public kaynaklardan yeniden indirilir) ---
+data/raw/
+data/corpus/
+*.zip
+*.tar.gz
+
+# --- Türev / işlenmiş veri ---
+data/processed/
+*.bin
+*.npz
+*.pkl
+
+# ...ama örnek dosyalar kalsın (veri biçimi görünsün diye)
+!data/processed/ornek_*.jsonl
+!data/processed/*.ornek.jsonl
+
+# --- Tokenizer çıktısı (train_tokenizer.py yeniden üretir) ---
+data/tokenizer.json
+
+# --- Ortam ve sırlar ---
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets/
+
+# --- Editör / işletim sistemi ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Loglar ve geçici ---
+*.log
+logs/
+tmp/
+.cache/
+
+# --- Gelistirme araci artiklari ---
+.claude/
+CLAUDE.md
+AGENTS.md
+.cursor/
+.aider*
