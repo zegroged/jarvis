@@ -81,3 +81,9 @@ CLAUDE.md
 AGENTS.md
 .cursor/
 .aider*
+
+# --- Ucuncu taraf belge harvest ciktilari (lisans: yeniden dagitilamaz) ---
+# kaynak_indir.py ile yeniden uretilir. HackTricks CC BY-NC-SA, OWASP CC BY-SA,
+# MS docs CC BY -> MIT depoda yeniden dagitilamaz.
+uretim_araclari/*_kaynak*.json
+uretim_araclari/ileri_kaynak*.json
