@@ -248,6 +248,21 @@ The repository was published as a snapshot after removing license-restricted har
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+This repository is dual-licensed — code and corpus are covered separately.
 
-Third-party documentation harvested by the download scripts in `src/` is **not** covered by this license and is not redistributed here. HackTricks (CC BY-NC-SA), OWASP material (CC BY-SA), and Microsoft docs (CC BY) retain their own terms; the downloader fetches them from their sources at setup time.
+| What | License | |
+| --- | --- | --- |
+| Source code (`src/`, `uretim_araclari/`, everything else) | **MIT** | [LICENSE](LICENSE) |
+| Turkish technical corpus (`bilgi_hazinesi/`, 523 documents) | **CC BY-SA 4.0** | [bilgi_hazinesi/LICENSE](bilgi_hazinesi/LICENSE) |
+
+The code is free to reuse without conditions. The corpus is also free to reuse —
+including as training or evaluation data — but asks for **attribution**, and for
+derivative corpora to stay under the same terms. It represents roughly 254,000
+words written for this project in a domain where open Turkish technical text is
+scarce, which is why it carries a different license from the code.
+
+**Provenance disclosure:** the corpus was authored with LLM assistance and then
+curated, quality-scanned, and deduplicated with the tooling in `uretim_araclari/`.
+Anyone weighing it as training data should factor that in.
+
+Third-party documentation harvested by the download scripts in `src/` is **not** covered by either license and is not redistributed here. HackTricks (CC BY-NC-SA), OWASP material (CC BY-SA), and Microsoft docs (CC BY) retain their own terms; the downloader fetches them from their sources at setup time.
