@@ -1,4 +1,8 @@
+from pathlib import Path
 import json
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 
 items = [
 ("Dağıtık sistemlerde kısmi hata (partial failure) nedir ve tek makineli sistemlerden farkı ne?",
@@ -29,7 +33,7 @@ items = [
 "Consensus sınırlı tutulmalıdır, her karar için kullanılmamalıdır. Consensus ucuz değildir; her karar için birden çok tur mesajlaşma ve disk yazımı gerektirir ve bu da ciddi gecikme ekler. Bu yüzden doğru pratik, consensus'u yalnızca gerçekten global anlaşma gerektiren kritik metadata için kullanmaktır: lider kimliği, konfigürasyon, kilit sahipliği, shard atamaları gibi. Yüksek hacimli asıl veri yolu ise mümkün olduğunca consensus dışında tutulmalıdır. Yaygın ve sağlıklı mimari, küçük ve kritik durumu bir consensus servisine (Raft veya Paxos temelli bir koordinasyon servisi) emanet edip, asıl iş yükünün bu servisin verdiği kararlara dayanmasıdır. Ayrıca kendi consensus algoritmanızı sıfırdan yazmaya kalkmak da önerilmez; bu, doğru yapılması yıllar alan ve küçük bir hatanın sessizce veri kaybına yol açabildiği bir alandır. Bunun yerine olgunlaşmış, kanıtlanmış Raft veya Paxos temelli mekanizmalar tercih edilmelidir."),
 ]
 
-path = r"C:\Users\yilma\Desktop\yeni bir jarvis\data\processed\instruct_tr\yazilim_dagitik-sistemler.jsonl"
+path = str(KOK / "data" / "processed" / "instruct_tr" / "yazilim_dagitik-sistemler.jsonl")
 with open(path, "w", encoding="utf-8") as f:
     for soru, cevap in items:
         obj = {"soru": soru, "cevap": cevap, "kaynak": "dagitik-sistemler", "alan": "yazilim"}

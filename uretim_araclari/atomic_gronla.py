@@ -1,10 +1,13 @@
 """D (kirmizi+DFIR) icin GERCEK atomic-red-team prosedurlerini toplar (grounding)."""
 import zipfile, sys, json
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-ZIP = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\data\raw\guvenlik\redcanaryco__atomic-red-team.zip")
-HEDEF = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\scratchpad\atomic_grounding.json")
+ZIP = KOK / "data" / "raw" / "guvenlik" / "redcanaryco__atomic-red-team.zip"
+HEDEF = KOK / ".cikti" / "atomic_grounding.json"
 N = 4
 MAKS = 1200
 

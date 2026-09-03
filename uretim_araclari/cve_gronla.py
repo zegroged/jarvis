@@ -1,10 +1,13 @@
 """Guvenlik konulari icin GERCEK CVE kayitlarini toplar (derin-dalis grounding)."""
 import gzip, json, sys
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-KORPUS = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\data\corpus")
-HEDEF = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\scratchpad\cve_grounding.json")
+KORPUS = KOK / "data" / "corpus"
+HEDEF = KOK / ".cikti" / "cve_grounding.json"
 N = 8          # konu basina CVE
 MAKS = 750     # CVE metni azami karakter
 

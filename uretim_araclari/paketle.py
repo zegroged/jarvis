@@ -1,9 +1,12 @@
 """bilgi_hazinesi/ altindaki tum .md dosyalarini korpus icin zip'ler."""
 import sys, zipfile
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-PROJ = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis")
+PROJ = KOK
 KAYNAK = PROJ / "bilgi_hazinesi"
 HEDEF_DIR = PROJ / "data" / "raw" / "uzman"
 HEDEF_DIR.mkdir(parents=True, exist_ok=True)

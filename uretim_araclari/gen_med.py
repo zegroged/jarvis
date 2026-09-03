@@ -1,12 +1,15 @@
 """Orta+dusuk oncelikli bosluklari doldurma workflow'u (.js) yazar (Opus, egitim odakli)."""
 import json, re, sys, unicodedata
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-OUT_TASK = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\tasks\wi1q23sq3.output")
-OUTDIR = r"C:\Users\yilma\Desktop\yeni bir jarvis\bilgi_hazinesi\uretilen"
+OUT_TASK = KOK / ".cikti" / "wi1q23sq3.output"
+OUTDIR = str(KOK / "bilgi_hazinesi" / "uretilen")
 BASE = Path(OUTDIR)
-JS_HEDEF = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\scratchpad\gen_med.js")
+JS_HEDEF = KOK / ".cikti" / "gen_med.js"
 TRHAR = str.maketrans("çğıöşüÇĞİÖŞÜ", "cgiosuCGIOSU")
 
 def temizle(s):

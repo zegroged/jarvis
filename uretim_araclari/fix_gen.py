@@ -1,10 +1,13 @@
 """ASCII-Turkce makaleleri bulup, imla-duzeltme workflow'u (.js) yazar."""
 import json, sys, unicodedata
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-BASE = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\bilgi_hazinesi\uretilen")
-JS_HEDEF = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\scratchpad\fix_eksik.js")
+BASE = KOK / "bilgi_hazinesi" / "uretilen"
+JS_HEDEF = KOK / ".cikti" / "fix_eksik.js"
 TR = set("çğıöşüÇĞİÖŞÜ")
 
 bozuk, stub = [], []

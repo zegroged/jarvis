@@ -1,7 +1,8 @@
+from pathlib import Path
 # -*- coding: utf-8 -*-
 import json, re
 
-SRC = r"C:\Users\yilma\Desktop\yeni bir jarvis\data\processed\instruct_tr\yazilim_kod-kalitesi-metrikleri-ve-statik-kalite-kapida.jsonl"
+SRC = str(KOK / "data" / "processed" / "instruct_tr" / "yazilim_kod-kalitesi-metrikleri-ve-statik-kalite-kapida.jsonl")
 
 raw = [r for r in open(SRC, encoding='utf-8').read().split('\n') if r.strip() != '']
 lines = raw[:7] + [raw[7] + raw[8]] + raw[9:]
@@ -32,6 +33,9 @@ KEEP |= PASSTHRU
 
 # We build the map inline in the runner; here we only load it from an external json for clarity.
 import mapdata
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 M = mapdata.M
 
 def fix_word(tok):

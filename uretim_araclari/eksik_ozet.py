@@ -1,8 +1,11 @@
 import json, sys
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-out = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\tasks\wi1q23sq3.output")
+out = KOK / ".cikti" / "wi1q23sq3.output"
 j = json.loads(out.read_text(encoding="utf-8", errors="replace"))
 if "result" in j:
     j = j["result"]

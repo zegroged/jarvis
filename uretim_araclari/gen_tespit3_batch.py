@@ -1,10 +1,13 @@
 """Tespit-3 KALAN (eksik) tekniklerini KUCUK PARTI halinde uretir. argv[1]=parti no (0,1..), parti=10."""
 import json, sys, unicodedata
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-SP = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\scratchpad")
-PROJ = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis")
+SP = KOK / ".cikti" / "scratchpad"
+PROJ = KOK
 TESPIT = str(PROJ / "bilgi_hazinesi" / "tespit")
 TDIR = PROJ / "bilgi_hazinesi" / "tespit" / "guvenlik"
 QA = str(PROJ / "data" / "processed" / "instruct_tr")

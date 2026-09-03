@@ -1,5 +1,9 @@
+from pathlib import Path
 # -*- coding: utf-8 -*-
 import json
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 
 rows = [
 {"soru": "ADR (Architecture Decision Record) nedir ve neden sadece kararı değil, gerekçesini de içermelidir?",
@@ -41,7 +45,7 @@ rows = [
 
 # Preserve original kaynak/alan values (they were empty/absent in source; source lines had no kaynak/alan)
 # Actually source lines only had soru and cevap. Keep only those keys present in source.
-out_path = r"C:\Users\yilma\Desktop\yeni bir jarvis\data\processed\instruct_tr\yazilim_dokumantasyon-muhendisligi.jsonl"
+out_path = str(KOK / "data" / "processed" / "instruct_tr" / "yazilim_dokumantasyon-muhendisligi.jsonl")
 with open(out_path, "w", encoding="utf-8") as f:
     for r in rows:
         obj = {"soru": r["soru"], "cevap": r["cevap"]}

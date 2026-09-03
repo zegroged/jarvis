@@ -1,9 +1,12 @@
 """Uretilen makaleleri tara: ASCII-Turkce bozuklugu + cok kisa/eksik dosyalar."""
 import sys
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-BASE = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\bilgi_hazinesi\uretilen")
+BASE = KOK / "bilgi_hazinesi" / "uretilen"
 TR = set("çğıöşüÇĞİÖŞÜ")
 
 sonuclar = []

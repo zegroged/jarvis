@@ -1,6 +1,9 @@
 """Bosluk haritasindan yuksek-oncelikli konulari cikarip uretim workflow'u (.js) yazar."""
 import json, re, sys, unicodedata
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 def temizle(s):
@@ -9,9 +12,9 @@ def temizle(s):
     s = "".join(ch for ch in s if unicodedata.category(ch)[0] != "C")
     return re.sub(r"\s+", " ", s).strip()
 
-OUT_TASK = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\tasks\wi1q23sq3.output")
-OUTDIR = r"C:\Users\yilma\Desktop\yeni bir jarvis\bilgi_hazinesi\uretilen"
-JS_HEDEF = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\scratchpad\gen_eksikler.js")
+OUT_TASK = KOK / ".cikti" / "wi1q23sq3.output"
+OUTDIR = str(KOK / "bilgi_hazinesi" / "uretilen")
+JS_HEDEF = KOK / ".cikti" / "gen_eksikler.js"
 
 TRHAR = str.maketrans("çğıöşüÇĞİÖŞÜ", "cgiosuCGIOSU")
 def slugla(s):

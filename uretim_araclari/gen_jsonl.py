@@ -1,4 +1,8 @@
+from pathlib import Path
 import json
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 
 items = [
 {
@@ -39,7 +43,7 @@ items = [
 },
 ]
 
-path = r"C:\Users\yilma\Desktop\yeni bir jarvis\data\processed\instruct_tr\yazilim_bit-manipulasyonu.jsonl"
+path = str(KOK / "data" / "processed" / "instruct_tr" / "yazilim_bit-manipulasyonu.jsonl")
 with open(path, "w", encoding="utf-8") as f:
     for it in items:
         obj = {"soru": it["soru"], "cevap": it["cevap"], "kaynak": "bit-manipulasyonu", "alan": "yazilim"}

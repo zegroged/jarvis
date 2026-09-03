@@ -4,8 +4,11 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 import json
 
-ZIP = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\data\raw\guvenlik\SigmaHQ__sigma.zip")
-HEDEF = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\scratchpad\sigma_grounding.json")
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
+
+ZIP = KOK / "data" / "raw" / "guvenlik" / "SigmaHQ__sigma.zip"
+HEDEF = KOK / ".cikti" / "sigma_grounding.json"
 N = 5           # konu basina kural
 MAKS = 1100     # kural metni azami karakter
 

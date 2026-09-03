@@ -263,6 +263,7 @@ scarce, which is why it carries a different license from the code.
 
 **Provenance disclosure:** the corpus was authored with LLM assistance and then
 curated, quality-scanned, and deduplicated with the tooling in `uretim_araclari/`.
-Anyone weighing it as training data should factor that in.
+Anyone weighing it as training data should factor that in. The code was written
+with AI assistance and reviewed by the author.
 
 Third-party documentation harvested by the download scripts in `src/` is **not** covered by either license and is not redistributed here. HackTricks (CC BY-NC-SA), OWASP material (CC BY-SA), and Microsoft docs (CC BY) retain their own terms; the downloader fetches them from their sources at setup time.

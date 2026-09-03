@@ -1,10 +1,13 @@
 """D (kirmizi metodoloji + DFIR) batch workflow uretici. Kucuk parti + idempotent + resume-dostu."""
 import json, sys, unicodedata
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-SP = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\scratchpad")
-PROJ = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis")
+SP = KOK / ".cikti" / "scratchpad"
+PROJ = KOK
 DFIR = str(PROJ / "bilgi_hazinesi" / "dfir_kirmizi")
 DFIR_DIR = Path(DFIR) / "guvenlik"
 QA = str(PROJ / "data" / "processed" / "instruct_tr")

@@ -1,8 +1,11 @@
 """Sadece soru+cevap DEGERLERI uzerinden Turkce oran (JSON yapisini haric tut)."""
 import json, sys
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-DIR = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\data\processed\instruct_tr")
+DIR = KOK / "data" / "processed" / "instruct_tr"
 TR = set("çğıöşüÇĞİÖŞÜ")
 
 bozuk = []

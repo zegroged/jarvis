@@ -3,8 +3,8 @@ import json, sys
 from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-DIR = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\data\processed\instruct_tr")
-HEDEF = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\data\processed\jarvis_instruct_tr.jsonl")
+DIR = KOK / "data" / "processed" / "instruct_tr"
+HEDEF = KOK / "data" / "processed" / "jarvis_instruct_tr.jsonl"
 TR = set("çğıöşüÇĞİÖŞÜ")
 
 toplam, gecersiz = 0, 0
@@ -37,6 +37,9 @@ for jf in sorted(DIR.glob("*.jsonl")):
 
 # Yinelenen sorulari ele (normalize edilmis soru metnine gore)
 import re as _re
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 gorulen_soru, tekil = set(), []
 yinelenen = 0
 for o in ciftler:

@@ -1,9 +1,12 @@
 """Instruction dataset'i temel (kavramsal) ve ileri (derin+tespit) olarak ayir."""
 import json, sys
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-D = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\data\processed")
+D = KOK / "data" / "processed"
 F = D / "jarvis_instruct_tr.jsonl"
 temel, ileri = [], []
 for satir in F.read_text(encoding="utf-8", errors="replace").splitlines():

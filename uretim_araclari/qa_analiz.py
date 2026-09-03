@@ -1,9 +1,12 @@
 """Instruction dataset'i seviyeye gore analiz et (basit kavramsal vs ileri pratisyen)."""
 import json, sys
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-F = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\data\processed\jarvis_instruct_tr.jsonl")
+F = KOK / "data" / "processed" / "jarvis_instruct_tr.jsonl"
 kav, derin, tespit = [], [], []
 for satir in F.read_text(encoding="utf-8", errors="replace").splitlines():
     satir = satir.strip()

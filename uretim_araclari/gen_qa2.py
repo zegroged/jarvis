@@ -1,12 +1,15 @@
 """Q&A'si OLMAYAN (yeni) makaleler icin Turkce soru-cevap ureten workflow (.js). Opus."""
 import json, sys, unicodedata
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-BASE = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\bilgi_hazinesi\uretilen")
-QADIR = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\data\processed\instruct_tr")
+BASE = KOK / "bilgi_hazinesi" / "uretilen"
+QADIR = KOK / "data" / "processed" / "instruct_tr"
 OUTDIR = str(QADIR)
-JS_HEDEF = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\scratchpad\qa2.js")
+JS_HEDEF = KOK / ".cikti" / "qa2.js"
 
 makaleler = []
 for md in sorted(BASE.rglob("*.md")):

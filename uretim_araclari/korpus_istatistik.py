@@ -1,9 +1,12 @@
 """Tum korpusun (korpus_*, korpus_cve_*, korpus_hf_*) gercek istatistigi."""
 import gzip, json, sys
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-KORPUS = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\data\corpus")
+KORPUS = KOK / "data" / "corpus"
 
 def grup(dosya):
     ad = dosya.name

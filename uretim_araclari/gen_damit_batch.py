@@ -1,10 +1,13 @@
 """Gercek Ingilizce ileri dokumanlari Turkce ileri Q&A'ya damitir. Batch + idempotent + resume."""
 import json, sys, unicodedata
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-SP = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\scratchpad")
-QA = str(Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\data\processed\instruct_tr"))
+SP = KOK / ".cikti" / "scratchpad"
+QA = str(KOK / "data" / "processed" / "instruct_tr")
 QA_DIR = Path(QA)
 JS_HEDEF = SP / "damit_p.js"
 PARTI = 50

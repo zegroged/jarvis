@@ -1,10 +1,13 @@
 """Gercek Ingilizce ileri guvenlik repolarindan zengin dokumanlari cikarir (damitma kaynagi)."""
 import zipfile, sys, json, re
 from pathlib import Path
+
+# Depo koku - kisisel makine yolu yerine bu dosyanin konumundan turetilir.
+KOK = Path(__file__).resolve().parents[1]
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-RAW = Path(r"C:\Users\yilma\Desktop\yeni bir jarvis\data\raw\guvenlik")
-HEDEF = Path(r"C:\Users\yilma\AppData\Local\Temp\claude\C--Users-yilma-Desktop-yeni-bir-jarvis\5cc9db30-8220-44db-b5f5-77d37a95ea28\scratchpad\ileri_kaynak.json")
+RAW = KOK / "data" / "raw" / "guvenlik"
+HEDEF = KOK / ".cikti" / "ileri_kaynak.json"
 
 # kaynak_etiket -> zip adi ; her kaynaktan azami dokuman (cesitlilik icin)
 SOURCES = [
