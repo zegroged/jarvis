@@ -14,6 +14,8 @@ Turkish README: [README.tr.md](README.tr.md) (original, kept for reference).
 
 ---
 
+**How this was built:** the code was written with AI assistance and reviewed by the author.
+
 ## Overview
 
 Small local models are cheap to run and hard to make useful. A 7B model quantized to fit in 6 GB of VRAM will happily hallucinate a security recommendation, call the same tool five times in a row, or drift out of its own JSON format halfway through a task. **Jarvis is an attempt to make a 7B model do real work anyway — not by making the model smarter, but by building the harness around it.** The intelligence is deliberately pushed out of the weights and into the tool layer, the retrieval layer, and the control loop.
@@ -263,7 +265,6 @@ scarce, which is why it carries a different license from the code.
 
 **Provenance disclosure:** the corpus was authored with LLM assistance and then
 curated, quality-scanned, and deduplicated with the tooling in `uretim_araclari/`.
-Anyone weighing it as training data should factor that in. The code was written
-with AI assistance and reviewed by the author.
+Anyone weighing it as training data should factor that in.
 
 Third-party documentation harvested by the download scripts in `src/` is **not** covered by either license and is not redistributed here. HackTricks (CC BY-NC-SA), OWASP material (CC BY-SA), and Microsoft docs (CC BY) retain their own terms; the downloader fetches them from their sources at setup time.

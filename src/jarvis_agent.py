@@ -75,7 +75,10 @@ GECMIS_BUDCESI = 14000           # sohbet gecmisi ust siniri (karakter ~ 5.5k to
 YIKICI = re.compile(
     r"\b(rm|rmdir|del|erase|format|mkfs|dd|shutdown|restart|"
     r"reg\s+delete|rd|Remove-Item|Clear-|Stop-Computer|Restart-Computer|"
-    r"Format-Volume|diskpart)\b|>\s*/dev/|:\s*>\s*",
+    r"Format-Volume|diskpart|"
+    r"Invoke-Expression|iex|Invoke-WebRequest|iwr|Invoke-RestMethod|irm|"
+    r"curl|wget|Set-Content|Add-Content|Out-File|Start-Process|"
+    r"New-Service|Set-ItemProperty|Set-ExecutionPolicy)\b|>\s*/dev/|:\s*>\s*",
     re.IGNORECASE,
 )
 
@@ -224,7 +227,7 @@ def arac_dosya_ara(params, onayci):
 
 def arac_python_calistir(params, onayci):
     kod = params["kod"]
-    if not onayci("PYTHON kodu çalıştırılacak:\n" + kod[:400], yikici=False):
+    if not onayci("PYTHON kodu çalıştırılacak:\n" + kod[:400], yikici=True):
         return "[reddedildi] Kullanıcı kodu onaylamadı."
     try:
         r = subprocess.run([sys.executable, "-c", kod], capture_output=True, text=True,
