@@ -2,6 +2,7 @@
 
 > A Turkish-speaking security and software engineering assistant that runs entirely on local hardware: a tool-using agent loop over an open-weights LLM, a hybrid retrieval layer with cross-encoder reranking, and a 523-document Turkish technical corpus.
 
+[![syntax](https://github.com/zegroged/jarvis/actions/workflows/syntax.yml/badge.svg)](https://github.com/zegroged/jarvis/actions/workflows/syntax.yml)
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-CUDA%2012.8-ee4c2c)
 ![Runtime](https://img.shields.io/badge/LLM%20runtime-llama.cpp%20(GGUF)-lightgrey)
