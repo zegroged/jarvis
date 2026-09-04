@@ -1,0 +1,21 @@
+name: syntax
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      # Bu depoda otomatik test YOK ve bu is testleri temsil etmiyor -- adi da
+      # o yuzden "syntax". Yaptigi tek sey her Python dosyasinin derlendigini
+      # dogrulamak: bagimlilik kurmadan, saniyeler icinde. Zayif bir kapi, ama
+      # derlenmeyen bir degisikligin main'e girmesini engelliyor.
+      - run: python -m compileall -q src uretim_araclari
